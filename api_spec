@@ -1,0 +1,113 @@
+API: Login
+	URI: /login
+	Method: POST
+	Request: {
+	    countryCode: string (Only numbers allowed),
+	    phoneNumber: string (Only numbers allowed)
+	}
+	Response: {
+	    status: 2xx/4xx/5xx
+	}
+
+
+API: OTPVerification
+	URI: /login/otp
+	Method: POST
+	Request: {
+	    countryCode: string (Only numbers allowed),
+	    phoneNumber: string (Only numbers allowed),
+	    OTP: string
+	}
+	Response: {
+	    status: 2xx/4xx/5xx,
+	    body: {
+	        isExistingUser: boolean,
+	        userId: string
+	    }
+	}
+
+
+API: UserDetailsCapture
+	URI: /userDetails
+	Method: POST
+	Request: {
+	    fullName: string,
+	    organisation: string,
+	    designation: string,
+	    corporateEmailId: string,
+	    domain: Enum,
+	    function: Enum
+	}
+	Response: {
+	    status: 2xx/4xx/5xx,
+	    body: {
+	        userId: string
+	    }
+	}
+
+
+API: FeaturedEvents
+	URI: /events/featured
+	Method: GET
+	QueryParams: userId
+	Response: {
+		status: 2xx/4xx/5xx,
+		body: {
+			personalisedEvents: List<Event>,
+	    	sponsoredEvents: List<Event>
+		}
+	}
+
+
+API: Events
+	URI: /events
+	Method: GET
+	Response: {
+		status: 2xx/4xx/5xx,
+		body: List<Event>
+	}
+
+
+API: EventDetails
+	URI: /events/{eventId}
+	Method: GET
+	QueryParams: userId
+	Response: {
+		status: 2xx/4xx/5xx,
+		body: EventDetails
+	}
+
+
+API: AttendanceCapture
+	URI: /events/{eventId}/attendance
+	Method: POST
+	QueryParams: userId
+	Request: {
+	    userId: string,
+	    status: Enum
+	}
+	Response: {
+	    status: 2xx/4xx/5xx
+	}
+
+Event: {
+    id: number,
+    imageUrl: string,
+    name: string,
+    organiser: string,
+    locationName: string,
+    eventDate: Date
+}
+
+EventDetails: {
+    metadata: Event,
+    attendance: {
+        selfStatus: Enum,
+        attendeesCount: number
+    }
+    tagline: String,
+    websiteUrl: String,
+    tags: List<String>
+    organisingTeamMembers: List<User>,
+    description: String
+}
