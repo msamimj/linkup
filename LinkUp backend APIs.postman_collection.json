@@ -1,0 +1,47 @@
+{
+	"info": {
+		"_postman_id": "cdf82720-d0fc-4838-971d-9b42a5344d82",
+		"name": "LinkUp backend APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "2455285",
+		"_collection_link": "https://linkup-7220.postman.co/workspace/LinkUp~d530a01c-e1c6-45c1-827b-dbd4997b3ec2/collection/2455285-cdf82720-d0fc-4838-971d-9b42a5344d82?action=share&source=collection_link&creator=2455285"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phoneNumber\": {\n        \"countryCode\": \"91\",\n        \"number\": \"6900473269\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://g0lnv78sq2.execute-api.ap-south-1.amazonaws.com/login"
+			},
+			"response": []
+		},
+		{
+			"name": "OtpVerification",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phoneNumber\": {\n        \"countryCode\": \"91\",\n        \"number\": \"6900473269\"\n    },\n    \"otp\": \"483269\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://g0lnv78sq2.execute-api.ap-south-1.amazonaws.com/login/otp"
+			},
+			"response": []
+		}
+	]
+}
