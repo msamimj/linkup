@@ -28,7 +28,7 @@ API: OTPVerification
 
 
 API: UserDetailsCapture
-	URI: /userDetails
+	URI: /user/details
 	Method: POST
 	Request: {
 	    fullName: string,
