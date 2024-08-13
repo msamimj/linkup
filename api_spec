@@ -21,7 +21,7 @@ API: OTPVerification
 	Response: {
 	    status: 2xx/4xx/5xx,
 	    body: {
-	        isExistingUser: boolean,
+	        areUserDetailsCaptured: boolean,
 	        userId: string
 	    }
 	}
